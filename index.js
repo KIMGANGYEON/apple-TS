@@ -164,3 +164,43 @@ var 큧 = {
         return a - b;
     },
 };
+function abc3() {
+    var a = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        a[_i] = arguments[_i];
+    }
+    console.log(a);
+}
+abc3(1, 2, 3, 4, 5);
+var _a = ["안녕", 300], a1 = _a[0], a2 = _a[1];
+var _b = { student: true, age2: 20 }, student = _b.student, age2 = _b.age2;
+var obj3 = { student: true, age2: 20 };
+function abc4(_a) {
+    var student = _a.student, age = _a.age;
+    console.log(student, age);
+}
+abc4({ student: true, age: 20 });
+function 함수(_a) {
+    var user = _a.user, comment = _a.comment, admin = _a.admin;
+    console.log(user, comment, admin);
+}
+함수({ user: "kim", comment: [3, 5, 4], admin: false });
+function 함수(_a) {
+    var a = _a[0], b = _a[1], c = _a[2];
+    console.log(a, b, c);
+}
+함수([40, "wine", false]);
+function 최댓값() {
+    var x = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+    }
+    var result = 0;
+    x.forEach(function (i) {
+        if (result < i) {
+            result = i;
+        }
+    });
+    return result;
+}
+console.log(최댓값(4, 6, 3, 2));
