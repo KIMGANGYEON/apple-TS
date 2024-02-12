@@ -287,19 +287,19 @@ type UserType = {
   admin: boolean;
 };
 
-function 함수({ user, comment, admin }: UserType): void {
+function 함수3({ user, comment, admin }: UserType): void {
   console.log(user, comment, admin);
 }
 
-함수({ user: "kim", comment: [3, 5, 4], admin: false });
+함수3({ user: "kim", comment: [3, 5, 4], admin: false });
 
 type 어레이 = (number | string | boolean)[];
 
-function 함수([a, b, c]: 어레이) {
+function 함수4([a, b, c]: 어레이) {
   console.log(a, b, c);
 }
 
-함수([40, "wine", false]);
+함수4([40, "wine", false]);
 
 function 최댓값(...x: number[]) {
   let result = 0;
@@ -311,3 +311,133 @@ function 최댓값(...x: number[]) {
   return result;
 }
 console.log(최댓값(4, 6, 3, 2));
+
+type Fish = { swim: string };
+type Bird = { fly: string };
+
+function 함수5(animal: Fish | Bird) {
+  if ("swim" in animal) {
+    animal.swim;
+  }
+}
+
+let 날짜 = new Date();
+if (날짜 instanceof Date) {
+}
+
+type Car2 = {
+  wheel: "4개";
+  color: string;
+};
+type Bike = {
+  wheel: "2개";
+  color: string;
+};
+
+function 함수6(x: Car2 | Bike) {
+  if (x.wheel === "4개") {
+  }
+}
+
+function printAll(strs: string | undefined) {
+  if (strs && typeof strs === "string") {
+    console.log();
+  }
+}
+
+function 함수7(): never {
+  throw new Error("에러메세지");
+}
+
+class User2 {
+  name: string;
+  private familyName: string = "kim";
+  constructor(a) {
+    this.name = a + this.familyName;
+  }
+  이름변경함수() {
+    this.familyName = "zzz";
+  }
+}
+
+let 유저1 = new User2("park");
+// 유저1.name = "안농";
+유저1.이름변경함수();
+
+class NewUser2 extends User2 {}
+
+let 사람 = new NewUser2("zxc");
+
+class Person2 {
+  constructor(public name, age: number) {}
+}
+let 자식 = new Person2("김", 20);
+
+class User3 {
+  protected x = 10;
+  private static y = 20;
+}
+
+class NewUser3 extends User3 {
+  doThis() {
+    this.x = 20;
+  }
+}
+
+let qwer = new NewUser3();
+qwer.doThis();
+
+class User4 {
+  static skill = "js";
+  intro = "난" + User4.skill + "전문가";
+}
+
+let 철수2 = new User4();
+console.log(철수2);
+
+User4.skill = "ts";
+
+let 철수3 = new User4();
+console.log(철수3);
+
+class User5 {
+  private static x = 10;
+  public static y = 20;
+
+  static addOne(파라미터: number) {
+    User5.x += 파라미터;
+  }
+
+  static printX() {
+    console.log(User5.x);
+  }
+}
+User5.addOne(3);
+User5.addOne(10);
+User5.printX();
+
+function 함수8<Type>(x: Type[]): Type {
+  return x[0];
+}
+
+let a = 함수8<number>([4, 2]);
+console.log(a);
+
+// import { 나는 } from "./a";
+
+// console.log(나는);
+
+interface LengthCheck {
+  length: number;
+}
+
+function 함수9<MyType extends LengthCheck>(x: MyType) {
+  return x.length;
+}
+
+let a3 = 함수9<string[]>(["100"]);
+
+// function 함수9<MyType extends number>(x: MyType) {
+//   return x - 1;
+// }
+// let a3 = 함수9<number>(100);

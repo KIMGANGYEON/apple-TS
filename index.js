@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var project = {
     member: ["kim", "park"],
     days: 30,
@@ -180,16 +195,16 @@ function abc4(_a) {
     console.log(student, age);
 }
 abc4({ student: true, age: 20 });
-function 함수(_a) {
+function 함수3(_a) {
     var user = _a.user, comment = _a.comment, admin = _a.admin;
     console.log(user, comment, admin);
 }
-함수({ user: "kim", comment: [3, 5, 4], admin: false });
-function 함수(_a) {
+함수3({ user: "kim", comment: [3, 5, 4], admin: false });
+function 함수4(_a) {
     var a = _a[0], b = _a[1], c = _a[2];
     console.log(a, b, c);
 }
-함수([40, "wine", false]);
+함수4([40, "wine", false]);
 function 최댓값() {
     var x = [];
     for (var _i = 0; _i < arguments.length; _i++) {
@@ -204,3 +219,111 @@ function 최댓값() {
     return result;
 }
 console.log(최댓값(4, 6, 3, 2));
+function 함수5(animal) {
+    if ("swim" in animal) {
+        animal.swim;
+    }
+}
+var 날짜 = new Date();
+if (날짜 instanceof Date) {
+}
+function 함수6(x) {
+    if (x.wheel === "4개") {
+    }
+}
+function printAll(strs) {
+    if (strs && typeof strs === "string") {
+        console.log();
+    }
+}
+function 함수7() {
+    throw new Error("에러메세지");
+}
+var User2 = /** @class */ (function () {
+    function User2(a) {
+        this.familyName = "kim";
+        this.name = a + this.familyName;
+    }
+    User2.prototype.이름변경함수 = function () {
+        this.familyName = "zzz";
+    };
+    return User2;
+}());
+var 유저1 = new User2("park");
+// 유저1.name = "안농";
+유저1.이름변경함수();
+var NewUser2 = /** @class */ (function (_super) {
+    __extends(NewUser2, _super);
+    function NewUser2() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return NewUser2;
+}(User2));
+var 사람 = new NewUser2("zxc");
+var Person2 = /** @class */ (function () {
+    function Person2(name, age) {
+        this.name = name;
+    }
+    return Person2;
+}());
+var 자식 = new Person2("김", 20);
+var User3 = /** @class */ (function () {
+    function User3() {
+        this.x = 10;
+    }
+    User3.y = 20;
+    return User3;
+}());
+var NewUser3 = /** @class */ (function (_super) {
+    __extends(NewUser3, _super);
+    function NewUser3() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    NewUser3.prototype.doThis = function () {
+        this.x = 20;
+    };
+    return NewUser3;
+}(User3));
+var qwer = new NewUser3();
+qwer.doThis();
+var User4 = /** @class */ (function () {
+    function User4() {
+        this.intro = "난" + User4.skill + "전문가";
+    }
+    User4.skill = "js";
+    return User4;
+}());
+var 철수2 = new User4();
+console.log(철수2);
+User4.skill = "ts";
+var 철수3 = new User4();
+console.log(철수3);
+var User5 = /** @class */ (function () {
+    function User5() {
+    }
+    User5.addOne = function (파라미터) {
+        User5.x += 파라미터;
+    };
+    User5.printX = function () {
+        console.log(User5.x);
+    };
+    User5.x = 10;
+    User5.y = 20;
+    return User5;
+}());
+User5.addOne(3);
+User5.addOne(10);
+User5.printX();
+function 함수8(x) {
+    return x[0];
+}
+var a = 함수8([4, 2]);
+console.log(a);
+function 함수9(x) {
+    return x.length;
+}
+var a3 = 함수9(["100"]);
+// function 함수9<MyType extends number>(x: MyType) {
+//   return x - 1;
+// }
+// let a3 = 함수9<number>(100);
