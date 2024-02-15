@@ -327,3 +327,43 @@ var a3 = 함수9(["100"]);
 //   return x - 1;
 // }
 // let a3 = 함수9<number>(100);
+var 멍멍 = ["dog", true];
+function 함수10() {
+    var x = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        x[_i] = arguments[_i];
+    }
+    console.log(x);
+}
+함수10(1, "2");
+var arr = [1, 2, 3, 4];
+var arr2;
+function 함수11() {
+    var rest = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        rest[_i] = arguments[_i];
+    }
+}
+함수11("a", true, 6, 3, "1", 4);
+function 함수12() {
+    var rest = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        rest[_i] = arguments[_i];
+    }
+    var result = [[], []];
+    rest.forEach(function (a) {
+        if (typeof a === "string") {
+            result[0].push(a);
+        }
+        else {
+            result[1].push(a);
+        }
+    });
+    return result;
+}
+var a4 = "name";
+var a5;
+var age4;
+var age5;
+var age6;
+var age7;

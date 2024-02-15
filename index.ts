@@ -441,3 +441,66 @@ let a3 = 함수9<string[]>(["100"]);
 //   return x - 1;
 // }
 // let a3 = 함수9<number>(100);
+
+let 멍멍: [string, boolean?] = ["dog", true];
+
+function 함수10(...x: [number, string]) {
+  console.log(x);
+}
+함수10(1, "2");
+
+let arr = [1, 2, 3, 4];
+let arr2: [number, number, ...number[]];
+
+function 함수11(...rest: [string, boolean, ...(number | string)[]]) {}
+
+함수11("a", true, 6, 3, "1", 4);
+
+function 함수12(...rest: (string | number)[]) {
+  let result: [string[], number[]] = [[], []];
+
+  rest.forEach((a) => {
+    if (typeof a === "string") {
+      result[0].push(a);
+    } else {
+      result[1].push(a);
+    }
+  });
+
+  return result;
+}
+
+interface Person3 {
+  age: number;
+  name: string;
+}
+
+type Person3Keys = keyof Person3;
+let a4: Person3Keys = "name";
+
+type Car3 = {
+  color: boolean;
+  model: boolean;
+  price: boolean | number;
+};
+
+type TypeChanger<MyType> = {
+  [key in keyof MyType]: string;
+};
+
+type 새거 = TypeChanger<Car3>;
+
+type Age3<T> = T extends string ? string : unknown;
+let a5: Age3<string>;
+
+type FirstItem<T> = T extends any[] ? T[0] : any;
+
+let age4: FirstItem<string[]>;
+let age5: FirstItem<number>;
+
+type Age5<T> = T extends [string, ...any] ? T[0] : unknown;
+let age6: Age5<[string, number]>;
+let age7: Age5<[boolean, number]>;
+
+type 타입뽑기<T> = T extends (x: infer R) => any ? R : any;
+type a = 타입뽑기<(x: number) => void>;
